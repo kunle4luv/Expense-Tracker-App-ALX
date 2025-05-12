@@ -62,7 +62,3 @@ The Expense Tracker application is built to provide a user-friendly and scalable
 Developer - Ayokunle  Ajisafe 
 Git hub repo for the project - [click here](https://github.com/kunle4luv/Expense-Tracker-App-ALX)
 Linkdin Profile - [click here](https://www.linkedin.com/in/ayokunle-ajisafe/)
-
-
-3c46f4
-

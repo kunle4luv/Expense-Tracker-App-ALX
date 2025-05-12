@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
 
 function Form() {
-
+    //Destructing the addIncome
     const {addIncome} = useGlobalContext()
 
     const [inputState, setInputState] = useState({
@@ -71,6 +71,9 @@ function Form() {
             <option value="investments">Investments</option>
             <option value="others">Others</option>
         </select>
+      </div>
+      <div>
+        <textarea></textarea>
       </div>
       <div className='submit_btn'>
         <button>Add Income</button>

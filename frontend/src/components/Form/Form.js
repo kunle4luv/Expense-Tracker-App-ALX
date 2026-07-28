@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../context/globalContext';
+import Button from '../button/button';
+import { plus } from '../../utils/Icons';
 
 function Form() {
     //Destructing the addIncome
@@ -18,7 +20,7 @@ function Form() {
     })
 
 
-    const {title, amount, date, category, description} = inputState;
+    const { title, amount, date, category, description } = inputState;
 
     const handleInput = name => e => {
         setInputState({...inputState, [name]: e.target.value})
@@ -60,7 +62,13 @@ function Form() {
         />
       </div>
       <div className='input_control selects'>
-        <select required value={category} id='category' name='category' onChange={handleInput('category')}>
+        <select 
+          required 
+          value={category} 
+          id='category' 
+          name='category' 
+          onChange={handleInput('category')}
+        >
             <option value="" disabled >Selected option</option>
             <option value="salary">Salary</option>
             <option value="allowance">Allowance</option>
@@ -73,16 +81,78 @@ function Form() {
         </select>
       </div>
       <div>
-        <textarea></textarea>
+        <textarea 
+          name="description"
+          id="description"
+          cols="30"
+          rows="4"
+          value={description}
+          placeholder="Add a Reference"
+          onChange={handleInput('description')}
+        >
+
+        </textarea>
       </div>
       <div className='submit_btn'>
-        <button>Add Income</button>
+        <Button 
+            name={'Add Income'}
+            icon={plus}
+            bPad={'.8rem 1.6rem'}
+            bRad={'30px'}
+            bg={'var(--color-accent'}
+            color={'fff'}
+        />
       </div>
     </FormStyled>
   )
 }
 
-const FormStyled = styled.form``
+const FormStyled = styled.form`
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    input, textarea, select{
+        font-family: inherit;
+        font-size: inherit;
+        outline: none;
+        border: none;
+        padding: .5rem 1rem
+        border-raduis: 10px;
+        border: 2px solid rgb(76, 175, 221)
+        background: transparent;
+        resize: none;
+        box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+        color:rgba(34, 34, 96, 0.9);
+        &::placeholder{
+              color: rgba(34, 34, 96, 0.4)
+        }
+    }
+    .input_control {
+        input {
+            width: 100%;
+        }
+    }
+
+    .selects {
+        display: flex;
+        justify-content: flex-end;
+        select{
+            color: rgba(34, 34, 96, 0.4);
+            &:focus, &:active{
+                color: rgba(34, 34, 96, 1);
+            }
+        }
+    }
+
+    .submit_btn{
+        button{
+            box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+            &:hover{
+                background: var(--color-green) !important;
+            }
+        }
+    }
+`
 
 ;
 
